@@ -1,0 +1,13 @@
+package org.cressanda.IFM.Login.Page;
+
+import org.cressanda.IFM.Login.OR.LoginOR;
+import org.cressanda.IFM.Login.WebUtils.Utils;
+
+public class LoginPage extends LoginOR{
+
+	private Utils wt;
+	public LoginPage(Utils util) {
+		super(util);
+		this.wt=util;
+	}
+}

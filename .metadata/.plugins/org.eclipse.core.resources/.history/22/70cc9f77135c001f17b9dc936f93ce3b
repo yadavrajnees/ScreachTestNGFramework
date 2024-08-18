@@ -1,0 +1,11 @@
+package org.cressanda.IFM.TestScripts;
+
+import org.junit.Test;
+
+public class CommonScripts {
+
+	@Test
+	public void commonScript() {
+		
+	}
+}

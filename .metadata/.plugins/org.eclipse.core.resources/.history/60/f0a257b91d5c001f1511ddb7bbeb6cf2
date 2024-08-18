@@ -1,0 +1,13 @@
+package org.cressanda.IFM.Login.OR;
+
+import org.cressanda.IFM.Login.WebUtils.Utils;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginOR {
+
+	public LoginOR(Utils util) {
+		PageFactory.initElements(util.getDriver(), this);
+	}
+	
+	
+}

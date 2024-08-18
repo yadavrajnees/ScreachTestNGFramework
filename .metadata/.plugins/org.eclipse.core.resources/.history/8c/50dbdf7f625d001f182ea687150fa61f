@@ -1,0 +1,61 @@
+package org.cressanda.IFM.base.TestScript;
+
+import org.cressanda.IFM.Login.Page.LoginPage;
+import org.cressanda.IFM.WebUtils.Utils;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+
+public class BaseTestScript {
+
+	private Utils util;
+	
+	@BeforeSuite
+	public void beforeSuite() {
+		System.out.println("beforeSuite");
+		util=Utils.getInstance();
+		util.loadProperties("config");
+		
+	}
+	@BeforeTest
+	public void beforeTest() {
+		System.out.println("database started");
+	}
+	
+	@BeforeClass
+	public void beforeClass() {
+		
+	}
+	
+	@Parameters({"browser,url"})
+	@BeforeMethod
+	public void beforeMethod(String browser,String url) {
+		util.launchBrowser(browser);
+		util.openApplication(url);
+		LoginPage loginPG=new LoginPage(util);
+		loginPG.doLogin();
+	}
+	@AfterMethod
+	public void afterMethod() {
+		
+	}
+	@AfterClass
+	public void afterClass() {
+		
+	}
+	@AfterTest
+	public void afterTest() {
+		
+	}
+	
+	@AfterSuite
+	public void afterSuite() {
+		
+	}
+}

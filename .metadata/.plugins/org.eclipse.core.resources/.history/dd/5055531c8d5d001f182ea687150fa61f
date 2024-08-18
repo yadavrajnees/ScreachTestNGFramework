@@ -1,0 +1,19 @@
+package org.cressanda.IFM.Login.Page;
+
+import org.cressanda.IFM.Login.OR.LoginOR;
+import org.cressanda.IFM.WebUtils.Utils;
+
+public class LoginPage extends LoginOR{
+
+	private Utils wt;
+	public LoginPage(Utils util) {
+		super(util);
+		this.wt=util;
+	}
+	
+	public void doLogin() {
+		wt.sendKeys(getUserNameTxt(), wt.getPropertyData("UserName"));
+		wt.sendKeys(getUserPasswordTxt(), wt.getPropertyData("UserPassword"));
+		wt.click(getLoginBT());
+	}
+}

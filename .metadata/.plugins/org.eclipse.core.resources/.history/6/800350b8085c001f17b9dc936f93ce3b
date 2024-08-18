@@ -1,0 +1,68 @@
+package org.cressanda.IFM.Login.WebUtils;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class Utils {
+
+	private static Utils instance;
+	private WebDriver driver;
+	private Utils() {
+		
+	}
+	public static Utils getInstance() {
+		if(instance==null) {
+			instance=new Utils();
+		}
+		return instance;
+	}
+	
+	public void launchBrowser(String browserName) {
+		try {
+			if(browserName.equalsIgnoreCase("chrome")) {
+				System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver.exe");
+				ChromeOptions option=new ChromeOptions();
+				option.addArguments("--remote-allow-origins");
+				option.addArguments("--incognito");
+				driver=new ChromeDriver(option);
+				
+			}else if(browserName.equalsIgnoreCase("firfox")) {
+				
+			}else if(browserName.equalsIgnoreCase("edge")) {
+				
+			}else if(browserName.equalsIgnoreCase("safari")) {
+				
+			}
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			printMsgPass(browserName+" is launched successfully");
+		}catch(Exception e) {
+			printMsgFail(browserName+" is launched successfully");
+		}
+	}
+	
+	public void printMsgFail(String failMsg) {
+		System.err.println("FAILLED :"+failMsg);
+	}
+	public void printMsgPass(String passMsg) {
+		System.err.println("PASSED :"+passMsg);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
